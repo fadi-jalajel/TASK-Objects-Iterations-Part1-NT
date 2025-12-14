@@ -49,7 +49,11 @@ and prints the title of each movie.
 printMovieTitles(movies);
 ******************************/
 
+function printMovieTitles(movies: Movie[]) {
+movies.forEach((movie) => console.log(movie.title));
+}
 
+printMovieTitles(movies);
 
 /******************************
 ✅ Q2) Create a function that accepts:
@@ -59,8 +63,12 @@ and returns how many movies were released in that year.
 // Example usage:
 console.log(countMoviesByYear(movies, 1994)); // Output: 3
 ******************************/
+function countMoviesByYear(movies: Movie[], movieYear: number){
+movies.forEach((movie) => { if(movie.year == movieYear){ console.log(movie.title, movie.year);}}
+);
+}
 
-
+countMoviesByYear(movies, 1994); 
 
 /******************************
 ✅ Q3) Create a function that:
@@ -73,3 +81,15 @@ and return the modified array of movies.
 // Example usage:
 const updatedMovies = updateMovieGenre(movies, "Pulp Fiction", "Classic Crime");
 ******************************/
+
+function updateMovieGenre(movies: Movie[], movieTitle: string, movieGenre: string){
+movies.map( (movies)=> { if(movies.title == movieTitle){
+    movies.genre = movieGenre;
+}
+
+});
+return movies;
+}
+
+const updatedMovies = updateMovieGenre(movies, "Pulp Fiction", "Classic Crime");
+console.log(updatedMovies);
